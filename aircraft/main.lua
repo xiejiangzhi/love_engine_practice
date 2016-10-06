@@ -10,8 +10,6 @@ audios = {shoot = nil, explode = nil}
 sound_data = nil
 
 player = {x = 200, y = 710, speed = 200, width = nil, height = nil, img = nil, alive = true}
-player_quad = nil
-player_quad_viewport = nil
 
 bullets = {}
 bullet_info = {width = nil, height = nil, speed = 400}

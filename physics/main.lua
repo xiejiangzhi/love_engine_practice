@@ -66,6 +66,7 @@ function beginContact(a, b, coll)
 
   if player and block:getUserData() == 'bottom' then
     print("player contact bottom")
+    print(player:getBody():getPosition())
     print(a:getUserData() .. " contact " .. b:getUserData())
     can_jump = true
   else
