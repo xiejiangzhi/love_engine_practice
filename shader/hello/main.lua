@@ -12,7 +12,7 @@ function love.load()
     vec4 effect(vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords) {
       vec4 pixel = Texel(texture, texture_coords);
       number avg = (pixel.r + pixel.b + pixel.g) / 3.0;
-      number factor = texture_coords.x;
+      number factor = texture_coords.y;
       pixel.r = pixel.r + (avg - pixel.r) * factor;
       pixel.g = pixel.g + (avg - pixel.g) * factor;
       pixel.b = pixel.b + (avg - pixel.b) * factor;

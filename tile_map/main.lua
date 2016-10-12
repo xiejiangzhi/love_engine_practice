@@ -18,7 +18,7 @@ map_info = {
   h = nil,
 
   cols = 9000,
-  rows = 300,
+  rows = 1000,
   tile_w = 50,
   tile_h = 50,
   tile_scale_x = 1,

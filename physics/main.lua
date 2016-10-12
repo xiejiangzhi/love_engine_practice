@@ -5,16 +5,26 @@ text = ""
 persisting = 0
 can_jump = true
 
+ball2 = {}
+
 function love.load()
-  world = love.physics.newWorld(0, 600, true)
+  world = love.physics.newWorld(0, 0, true)
   world:setCallbacks(beginContact, endContact)
 
   ball.b = love.physics.newBody(world, 400, 300, 'dynamic')
   -- ball.b:setMass(0)
   ball.s = love.physics.newCircleShape(20)
   ball.f = love.physics.newFixture(ball.b, ball.s)
-  -- ball.f:setRestitution(0)
+  ball.f:setRestitution(0.4)
   ball.f:setUserData('ball')
+
+  ball2.b = love.physics.newBody(world, 500, 300, 'dynamic')
+  -- ball.b:setMass(0)
+  ball2.s = love.physics.newCircleShape(20)
+  ball2.f = love.physics.newFixture(ball2.b, ball2.s)
+  -- ball.f:setRestitution(0)
+  ball2.f:setUserData('ball2')
+
 
   edge = {
     {'top', 400, -5, 850, 10}, 
@@ -40,7 +50,8 @@ function love.update(dt)
   if can_jump then
     if love.keyboard.isDown('right') then
       ball.b:applyForce(1000, 0)
-    elseif love.keyboard.isDown('left') then
+    end
+    if love.keyboard.isDown('left') then
       ball.b:applyForce(-1000, 0)
     end
 
@@ -54,6 +65,7 @@ end
 
 function love.draw()
   love.graphics.circle('line', ball.b:getX(), ball.b:getY(), ball.s:getRadius(), 20)
+  love.graphics.circle('line', ball2.b:getX(), ball2.b:getY(), ball2.s:getRadius(), 20)
   love.graphics.print(text, 10, 10)
   love.graphics.print(love.timer.getFPS(), 600, 10)
 end
